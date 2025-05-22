@@ -1,0 +1,8 @@
+grpc:
+  port: 50051
+
+http:
+  port: 8080
+
+loms:
+  address: "localhost:50051" 

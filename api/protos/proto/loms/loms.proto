@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package loms;
+
+option go_package = "github.com/vagonaizer/loms/api/protos/gen";
+
+service LOMS {
+  rpc OrderCreate(OrderCreateRequest) returns (OrderCreateResponse) {}
+  rpc OrderInfo(OrderInfoRequest) returns (OrderInfoResponse) {}
+  rpc OrderPay(OrderPayRequest) returns (OrderPayResponse) {}
+  rpc OrderCancel(OrderCancelRequest) returns (OrderCancelResponse) {}
+  rpc StocksInfo(StocksInfoRequest) returns (StocksInfoResponse) {}
+}
+
+message Item {
+  uint32 sku = 1;
+  uint32 count = 2;
+}
+
+message OrderCreateRequest {
+  int64 user = 1;
+  repeated Item items = 2;
+}
+
+message OrderCreateResponse {
+  int64 orderID = 1;
+}
+
+message OrderInfoRequest {
+  int64 orderID = 1;
+}
+
+message OrderInfoResponse {
+  string status = 1;
+  int64 user = 2;
+  repeated Item items = 3;
+}
+
+message OrderPayRequest {
+  int64 orderID = 1;
+}
+
+message OrderPayResponse {}
+
+message OrderCancelRequest {
+  int64 orderID = 1;
+}
+
+message OrderCancelResponse {}
+
+message StocksInfoRequest {
+  uint32 sku = 1;
+}
+
+message StocksInfoResponse {
+  uint64 count = 1;
+}
