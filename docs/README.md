@@ -83,22 +83,11 @@ The service follows Clean Architecture principles, separating the codebase into 
 - Considers reserved items
 - Used for stock validation
 
-## Technical Implementation
 
 ### Storage
 - In-memory storage for orders and stock
 - Initial stock data loaded from JSON file
 - Thread-safe operations with mutex locks
-
-### Error Handling
-- Comprehensive error types
-- Graceful error propagation
-- Clear error messages for debugging
-
-### Logging
-- Detailed operation logging
-- Request/response tracking
-- Error logging for debugging
 
 ## Development
 
