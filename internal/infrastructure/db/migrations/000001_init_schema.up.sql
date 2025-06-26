@@ -1,0 +1,19 @@
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    status VARCHAR(32) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE order_items (
+    id SERIAL PRIMARY KEY,
+    order_id INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    sku BIGINT NOT NULL,
+    count INTEGER NOT NULL
+);
+
+CREATE TABLE stock (
+    sku BIGINT PRIMARY KEY,
+    total_count BIGINT NOT NULL,
+    reserved BIGINT NOT NULL DEFAULT 0
+);

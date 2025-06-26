@@ -17,6 +17,16 @@ type Config struct {
 	LOMS struct {
 		Address string `yaml:"address"`
 	} `yaml:"loms"`
+	Postgres PostgresConfig `yaml:"postgres"`
+}
+
+type PostgresConfig struct {
+	Host     string `yaml:"host"`
+	Port     int    `yaml:"port"`
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+	DBName   string `yaml:"dbname"`
+	SSLMode  string `yaml:"sslmode"`
 }
 
 func NewConfig() *Config {

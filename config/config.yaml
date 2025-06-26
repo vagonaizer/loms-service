@@ -6,3 +6,11 @@ http:
 
 loms:
   address: "localhost:50051" 
+
+postgres:
+  host: localhost
+  port: 5438
+  user: postgres
+  password: lomspassword
+  dbname: postgres
+  sslmode: disable
